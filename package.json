@@ -36,7 +36,6 @@
         "@rollup/plugin-node-resolve": "^15.2.3",
         "@types/cesium": "^1.67.3",
         "@types/ndarray": "^1.0.7",
-        "rollup-plugin-polyfill-node": "^0.13.0",
         "typescript": "^3.8.3"
     }
 }
