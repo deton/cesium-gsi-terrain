@@ -16,7 +16,7 @@ import {
 } from 'cesium';
 import ndarray from 'ndarray';
 // @ts-ignore
-import getPixels from 'get-pixels';
+import getPixels from './dom-pixels';
 // @ts-ignore
 import Martini from '@mapbox/martini';
 
@@ -116,12 +116,13 @@ class GsiTerrainProvider {
             const tile = this.martini.createTile(terrain);
 
             // get a mesh (vertices and triangles indices) for a 10m error
-            console.log(`Error level: ${err}`);
+            //console.log(`Error level: ${err}`);
             const mesh = tile.getMesh(err);
 
             return await this.createQuantizedMeshData(x, y, z, tile, mesh);
         } catch (err) {
             // We fall back to a heightmap
+            console.error("requestMapboxTile", err);
             const v = Math.max(32 - 4 * z, 4);
             return this.emptyHeightmap(v);
         }

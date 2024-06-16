@@ -1,20 +1,20 @@
 {
     "name": "cesium-gsi-terrain",
-    "version": "1.0.0",
+    "version": "1.0.0+bundle001",
     "description": "Cesiumで国土地理院の標高タイルを用いた地形表現を行うためのモジュール",
     "keywords": [
         "gis",
         "cesium",
         "gsi"
     ],
-    "main": "./dist/index.js",
-    "types": "dist/index.d.ts",
+    "main": "./dist/GsiTerrainProvider.js",
+    "types": "dist/GsiTerrainProvider.d.ts",
     "files": [
         "dist"
     ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "tsc",
+        "build": "rollup -c",
         "prepare": "npm run build"
     },
     "license": "MIT",
@@ -26,8 +26,16 @@
         "get-pixels": "^3.3.2"
     },
     "devDependencies": {
-        "typescript": "^3.8.3",
+        "@babel/plugin-transform-class-properties": "^7.24.7",
+        "@babel/plugin-transform-nullish-coalescing-operator": "^7.24.7",
+        "@babel/plugin-transform-optional-chaining": "^7.24.7",
+        "@babel/preset-env": "^7.24.7",
+        "@babel/preset-typescript": "^7.24.7",
+        "@rollup/plugin-babel": "^6.0.4",
+        "@rollup/plugin-commonjs": "^26.0.1",
+        "@rollup/plugin-node-resolve": "^15.2.3",
         "@types/cesium": "^1.67.3",
-        "@types/ndarray": "^1.0.7"
+        "@types/ndarray": "^1.0.7",
+        "typescript": "^3.8.3"
     }
 }

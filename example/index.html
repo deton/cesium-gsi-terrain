@@ -1,1 +1,55 @@
-<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="/cesium-gsi-terrain/example/favicon.ico"><title>cesium-gsi-terrain</title><link href="/cesium-gsi-terrain/example/css/chunk-vendors.27622efc.css" rel="preload" as="style"><link href="/cesium-gsi-terrain/example/js/app.52623dce.js" rel="preload" as="script"><link href="/cesium-gsi-terrain/example/js/chunk-vendors.8b31e17d.js" rel="preload" as="script"><link href="/cesium-gsi-terrain/example/css/chunk-vendors.27622efc.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but cesium-trial doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script src="/cesium-gsi-terrain/example/js/chunk-vendors.8b31e17d.js"></script><script src="/cesium-gsi-terrain/example/js/app.52623dce.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.118/Build/Cesium/Cesium.js"></script>
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.118/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <script src="../dist/GsiTerrainProvider.js"></script>
+</head>
+<body>
+<div id="cesiumContainer"></div>
+<script>
+const terrainViewModels = Cesium.createDefaultTerrainProviderViewModels();
+terrainViewModels.push(new Cesium.ProviderViewModel({
+  name: 'GSI Terrain',
+  tooltip: 'GSI Terrain',
+  iconUrl: 'https://cyberjapandata.gsi.go.jp/favicon.ico',
+  category: 'Other',
+  creationFunction: function () {
+    return new GsiTerrainProvider({});
+  }
+}));
+const imageryViewModels = Cesium.createDefaultImageryProviderViewModels();
+imageryViewModels.push(new Cesium.ProviderViewModel({
+  name: 'GSI photo',
+  tooltip: 'seamlessphoto of GSI(Geospatial Information Authority of Japan)',
+  iconUrl: 'https://cyberjapandata.gsi.go.jp/favicon.ico',
+  category: 'Other',
+  creationFunction: function () {
+    return new Cesium.UrlTemplateImageryProvider({
+      url: 'https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg',
+      credit: new Cesium.Credit(
+        '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">地理院タイル</a>'
+      ),
+      minimumLevel: 2,
+      maximumLevel: 18,
+    });
+  }
+}));
+const viewer = new Cesium.Viewer('cesiumContainer', {
+  terrainProviderViewModels: terrainViewModels,
+  imageryProviderViewModels: imageryViewModels,
+  selectedTerrainProviderViewModel: terrainViewModels.at(-1),
+  selectedImageryProviderViewModel: imageryViewModels.at(-1),
+  //terrainProvider: new GsiTerrainProvider({}),
+});    
+viewer.camera.setView({
+  destination: Cesium.Cartesian3.fromDegrees(138.68, 35.3, 4000),
+  orientation: {
+    heading: 0.7,
+    pitch: -0.2,
+  }
+});
+</script>
+</body>
+</html>
