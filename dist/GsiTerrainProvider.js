@@ -1090,23 +1090,24 @@ b"+i+"*=d\
                 terrain = gsiTerrainToGrid(pxArray); // set up mesh generator for a certain 2^k+1 grid size
                 // generate RTIN hierarchy from terrain data (an array of size^2 length)
                 tile = this.martini.createTile(terrain); // get a mesh (vertices and triangles indices) for a 10m error
-                console.log("Error level: ".concat(err));
+                //console.log(`Error level: ${err}`);
                 mesh = tile.getMesh(err);
-                _context2.next = 13;
+                _context2.next = 12;
                 return this.createQuantizedMeshData(x, y, z, tile, mesh);
-              case 13:
+              case 12:
                 return _context2.abrupt("return", _context2.sent);
-              case 16:
-                _context2.prev = 16;
+              case 15:
+                _context2.prev = 15;
                 _context2.t0 = _context2["catch"](3);
                 // We fall back to a heightmap
+                console.error("requestMapboxTile", _context2.t0);
                 v = Math.max(32 - 4 * z, 4);
                 return _context2.abrupt("return", this.emptyHeightmap(v));
               case 20:
               case "end":
                 return _context2.stop();
             }
-          }, _callee2, this, [[3, 16]]);
+          }, _callee2, this, [[3, 15]]);
         }));
         function requestMapboxTile(_x3, _x4, _x5) {
           return _requestMapboxTile.apply(this, arguments);
