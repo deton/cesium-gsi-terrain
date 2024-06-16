@@ -19,7 +19,7 @@ Cesium で国土地理院の標高タイルを用いた地形表現を行うた�
   <meta charset="utf-8">
   <script src="https://cesium.com/downloads/cesiumjs/releases/1.118/Build/Cesium/Cesium.js"></script>
   <link href="https://cesium.com/downloads/cesiumjs/releases/1.118/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
-  <script src="https://deton.github.io/cesium-gsi-terrain/dist/GsiTerrainProvider.js"></script>
+  <script src="https://deton.github.io/cesium-gsi-terrain/bundle/GsiTerrainProvider.js"></script>
 </head>
 <body>
   <div id="cesiumContainer"></div>

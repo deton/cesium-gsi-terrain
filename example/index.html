@@ -29,7 +29,7 @@ imageryViewModels.push(new Cesium.ProviderViewModel({
     return new Cesium.UrlTemplateImageryProvider({
       url: 'https://cyberjapandata.gsi.go.jp/xyz/seamlessphoto/{z}/{x}/{y}.jpg',
       credit: new Cesium.Credit(
-        '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">$BCOM}1!%?%$%k(B</a>'
+        '<a href="https://maps.gsi.go.jp/development/ichiran.html" target="_blank">地理院タイル</a>'
       ),
       minimumLevel: 2,
       maximumLevel: 18,
@@ -42,7 +42,7 @@ const viewer = new Cesium.Viewer('cesiumContainer', {
   selectedTerrainProviderViewModel: terrainViewModels.at(-1),
   selectedImageryProviderViewModel: imageryViewModels.at(-1),
   //terrainProvider: new GsiTerrainProvider({}),
-});    
+});
 viewer.camera.setView({
   destination: Cesium.Cartesian3.fromDegrees(138.68, 35.3, 4000),
   orientation: {

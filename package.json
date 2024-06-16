@@ -7,14 +7,15 @@
         "cesium",
         "gsi"
     ],
-    "main": "./dist/GsiTerrainProvider.js",
-    "types": "dist/GsiTerrainProvider.d.ts",
+    "main": "./dist/index.js",
+    "types": "dist/index.d.ts",
     "files": [
         "dist"
     ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "rollup -c",
+        "build": "tsc",
+        "bundle": "rollup -c",
         "prepare": "npm run build"
     },
     "license": "MIT",

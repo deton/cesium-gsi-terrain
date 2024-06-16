@@ -11,7 +11,7 @@ const extensions =  [ '.js', '.ts']
 export default {
   input: 'src/index.ts', // our source file
   output: {
-    file: pkg.main,
+    file: 'bundle/GsiTerrainProvider.js',
     format: 'iife',
     sourcemap: true,
     name: 'GsiTerrainProvider',
