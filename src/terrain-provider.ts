@@ -16,7 +16,8 @@ import {
 } from 'cesium';
 import ndarray from 'ndarray';
 // @ts-ignore
-import getPixels from 'get-pixels';
+//import getPixels from 'get-pixels';
+import getPixels from '../node_modules/get-pixels/dom-pixels';
 // @ts-ignore
 import Martini from '@mapbox/martini';
 
